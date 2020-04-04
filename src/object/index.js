@@ -2,7 +2,8 @@
   Создать и вернуть пустой объект
  */
 function createObject() {
-
+let obj = {};
+return obj;
 }
 
 /**
@@ -19,7 +20,11 @@ function createObject() {
  * @param object
  */
 function getCountOfProp(object) {
-
+let a = 0;
+for (key in object) {
+  a = a + 1;
+}
+return a;
 }
 
 /**
@@ -27,7 +32,11 @@ function getCountOfProp(object) {
  * @param obj
  */
 function copyObject(obj) {
-
+let k = {};
+for (let key in obj) {
+  k[key] = obj[key];
+}
+return k;
 }
 
 /**
@@ -38,7 +47,12 @@ function copyObject(obj) {
  * mergeObject(a, b) = { name: 'Max', age: 18, }
  */
 function mergeObject(objectA, objectB) {
+  let mergeObject = {};
 
+  let obj1 = {};
+  let obj2 = {};
+  Object.assign(mergeObject, obj1, obj2);
+  return mergeObject;
 }
 
 /**
