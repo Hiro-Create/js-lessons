@@ -52,8 +52,9 @@ return arr;
  *  второй - удаленный элемент массива
  */
 function removeFromArrayFirst(arr) {
-let array = [0, 1, 2];
-arr.shift();
+let array = [];
+array[1] = arr.shift();
+array[0] = arr;
 return array;
 }
 
@@ -66,11 +67,12 @@ return array;
  */
 function joinArray(array, sep) {
 let arr = [];
-for (let i=0; i<arr.length; i++){
-  array.join(sep);
+for(let i=0;i<array.lenght;i++)
+{
+  if(i < array.lenght - 1)
+  {arr += array[i] + sep;} else {arr += array[i];}
 }
-
-return sep;
+return arr;
 }
 
 /**
@@ -101,8 +103,8 @@ function mergeArray(arr, arr2) {
  * filterArray([1,3, 5, 2]) => [3,5]
  */
 function filterArray(arr) {
-  array.filter(arr);
-  return array;
+  let A = arr.filter(item => item > 2)
+  return A;
 
 }
 
@@ -137,9 +139,11 @@ function filterArrayCustom(arr, fn) {
  * Вернуть новый массив.
  */
 function reverseArray(arr) {
-  let array = new Array(arr);
-  array.reverse();
-  return arr;
+ let array = [];
+ array = arr.concat();
+ array.reverse();
+
+ return array;
 }
 
 /**
@@ -149,7 +153,10 @@ function reverseArray(arr) {
  * @param arr
  */
 function sortArray(arr) {
-
+let array = [];
+array = arr.concat();
+array.sort((obj1,obj2) => obj2.age - obj1.age);
+return array;
 }
 
 /**
@@ -165,8 +172,17 @@ function sortArray(arr) {
  *  spliceArray([1,2,3,4,5,6,7,8,9]) -> [ [7, 8, 9], [4, 5, 6], [1, 2, 3] ]
  */
 function spliceArray(arr) {
-
-}
+  let array=[]
+  let a = arr.length - 3
+  u = arr.length
+  for (let i=0; i < 3; i++)
+  {
+  array[i] = arr.slice(a,u)
+  a-=3;
+  u-=3;
+  }
+  return array;
+  }
 
 /**
  * Перевести объект в массив
